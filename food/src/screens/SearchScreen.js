@@ -9,6 +9,7 @@ const SearchScreen = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const searchApi = async () => {
+        console.log('Hi there!');
         try {
             const response = await yelp.get('/search', {
                 params: {
@@ -22,6 +23,10 @@ const SearchScreen = () => {
             setErrorMessage('Something went wrong');
         }
     };
+
+    // Call searchApi when component
+    // is first rendered. BAD CODE!
+    // searchApi('pasta');
 
     return (
         <View>
