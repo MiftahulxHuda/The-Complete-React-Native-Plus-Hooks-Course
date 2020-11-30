@@ -14,6 +14,11 @@ app.use(authRoutes);
 app.use(trackRoutes);
 
 const mongoUri = 'mongodb://localhost:27017/track_server';
+if (!mongoUri) {
+    throw new Error(
+      `MongoURI was not supplied.  Make sure you watch the video on setting up Mongo DB!`
+    );
+}
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useCreateIndex: true
